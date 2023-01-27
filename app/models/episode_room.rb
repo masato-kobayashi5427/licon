@@ -1,0 +1,2 @@
+class EpisodeRoom < ApplicationRecord
+end
