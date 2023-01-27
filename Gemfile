@@ -57,3 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bcrypt'
 gem 'rack-cors'
 gem 'rename'
+
+gem 'active_hash'
+gem 'pry-rails'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", "~> 1.118"
