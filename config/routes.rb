@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'episodes', to: 'episodes#index'
   get 'episodes/new', to: 'episodes#new'
   post 'episodes/create', to: 'episodes#create'
+  get 'episodes/:id', to: 'episodes#show'
+  # resources :episodes
 
-  get 'episode_rooms/new', to 'episode_rooms#new'
+  get 'episode_rooms/new', to: 'episode_rooms#new'
 end
