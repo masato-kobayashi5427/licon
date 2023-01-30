@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get 'episodes/:id', to: 'episodes#show'
   # resources :episodes
 
+  get 'episode_rooms', to: 'episode_rooms#index'
   get 'episode_rooms/new', to: 'episode_rooms#new'
+  post 'episode_rooms/create', to: 'episode_rooms#create'
 end
