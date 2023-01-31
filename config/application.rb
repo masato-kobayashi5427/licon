@@ -12,6 +12,7 @@ module Licon
     config.load_defaults 6.1
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
 
     # Configuration for the application, engines, and railties goes here.
     #
