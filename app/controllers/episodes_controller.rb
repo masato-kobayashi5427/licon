@@ -1,12 +1,12 @@
 class EpisodesController < ApplicationController
   def index
     episodes = Episode.all
-    render json: episodes
+    render json: episodes.to_json(include: :user)
   end
 
   def show
     episode = Episode.find(params[:id])
-    render json: episode
+    render json: episode.to_json(include: :user)
   end
 
   def create
