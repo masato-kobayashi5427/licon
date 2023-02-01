@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   has_many :episode_room_users
   has_many :episode_rooms, through: :episode_room_users
+  has_many :chats
 end

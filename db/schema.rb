@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_29_002900) do
+ActiveRecord::Schema.define(version: 2023_01_31_140456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2023_01_29_002900) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.string "content"
+    t.bigint "episode_room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_room_id"], name: "index_chats_on_episode_room_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "episode_room_users", force: :cascade do |t|
@@ -90,6 +100,8 @@ ActiveRecord::Schema.define(version: 2023_01_29_002900) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chats", "episode_rooms"
+  add_foreign_key "chats", "users"
   add_foreign_key "episode_room_users", "episode_rooms"
   add_foreign_key "episode_room_users", "users"
   add_foreign_key "episode_rooms", "episodes"
