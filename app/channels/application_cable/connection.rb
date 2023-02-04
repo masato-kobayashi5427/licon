@@ -7,11 +7,10 @@ module ApplicationCable
     end
 
     private
-
     def find_verified_user!
-      # 本来はcookieなどを使い接続してきたクラウアントのユーザーを検索するが
-      # 今回は動作確認したいだけなのでランダムでユーザーを1人返す
-      User.all.sample
+      # User[session.values[1]]
+      # puts User.all[session.values[1]]
+      User.all[(cookies.encrypted[:_session_id]["user_id"] -1)]
     end
   end
 end

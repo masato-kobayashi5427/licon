@@ -6,7 +6,6 @@ class ChatsController < ApplicationController
 
   def create
     chat = Chat.new(chat_params)
-    binding.pry
     if chat.save
       render json: chat
       ActionCable.server.broadcast "comment_channel", {comment: comment, user: comment.user}

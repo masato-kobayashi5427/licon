@@ -2,6 +2,7 @@ import consumer from "./consumer"
 console.log("読み込み完了")
 consumer.subscriptions.create("ChatChannel", {
   connected() {
+    
     // Called when the subscription is ready for use on the server
   },
 
