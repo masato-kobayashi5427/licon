@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :episodes
 
   resources :episode_rooms do
-    resources :chats, only: [:index, :create]
+    resources :chats
   end
 end

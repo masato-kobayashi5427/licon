@@ -6,8 +6,9 @@ class EpisodeRoomsController < ApplicationController
   end
 
   def show
-    episode_room = EpisodeRoom.find(params[:id])
-    render json: episode_room.to_json(include: :user)
+    episode_room = Episode_room.find(params[:id])
+    chats = episode.chats
+    render json: chats.to_json(include: [:user, :episode_room])
   end
 
   def create

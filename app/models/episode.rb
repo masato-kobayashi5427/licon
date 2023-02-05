@@ -13,7 +13,7 @@ class Episode < ApplicationRecord
 
   has_one_attached :image
   # has_many :episode_comments
-  has_many :episode_rooms
+  has_many :episode_rooms, dependent: :destroy
   belongs_to :user
 
   # def image_url(image)
