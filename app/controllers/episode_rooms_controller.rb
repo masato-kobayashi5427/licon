@@ -1,7 +1,7 @@
 class EpisodeRoomsController < ApplicationController
 
   def index
-    episode_room_users = EpisodeRoomUser.all
+    episode_room_users = current_user.episode_room_users
     render json: episode_room_users.to_json(include: [:user, :episode_room, episode_room: { include: :episode}])
   end
 

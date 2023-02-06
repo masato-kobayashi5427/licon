@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   def index
-    chats = Chat.all
+    chats = EpisodeRoom.find(params[:episode_room_id]).chats
     render json: chats.to_json(include: [:user, :episode_room])
   end
 
