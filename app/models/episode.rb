@@ -16,13 +16,4 @@ class Episode < ApplicationRecord
   has_many :episode_rooms, dependent: :destroy
   belongs_to :user
 
-  # def image_url(image)
-  #   # 紐づいている画像のURLを取得する
-  #   image.attached? ? url_for(image) : nil
-  # end
-
-  # def url
-  #   helpers = Rails.application.routes.url_helpers
-  #   helpers.rails_representation_url(file.variant({}), only_path: true)
-  # end
 end
