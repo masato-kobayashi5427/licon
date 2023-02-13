@@ -66,9 +66,11 @@ ActiveRecord::Schema.define(version: 2023_01_31_140456) do
   create_table "episode_rooms", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "episode_id", null: false
+    t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["episode_id"], name: "index_episode_rooms_on_episode_id"
+    t.index ["order_id"], name: "index_episode_rooms_on_order_id"
   end
 
   create_table "episodes", force: :cascade do |t|
@@ -83,6 +85,15 @@ ActiveRecord::Schema.define(version: 2023_01_31_140456) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_episodes_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "episode_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_orders_on_episode_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,5 +117,8 @@ ActiveRecord::Schema.define(version: 2023_01_31_140456) do
   add_foreign_key "episode_room_users", "episode_rooms"
   add_foreign_key "episode_room_users", "users"
   add_foreign_key "episode_rooms", "episodes"
+  add_foreign_key "episode_rooms", "orders"
   add_foreign_key "episodes", "users"
+  add_foreign_key "orders", "episodes"
+  add_foreign_key "orders", "users"
 end

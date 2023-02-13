@@ -3,6 +3,7 @@ class CreateEpisodeRooms < ActiveRecord::Migration[6.1]
     create_table :episode_rooms do |t|
       t.string :name, null: false
       t.references :episode, null: false, foreign_key: true
+      t.references :order, null: false, foreign_key: true
       t.timestamps
     end
   end

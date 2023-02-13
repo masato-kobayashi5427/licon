@@ -15,5 +15,6 @@ class Episode < ApplicationRecord
   # has_many :episode_comments
   has_many :episode_rooms, dependent: :destroy
   belongs_to :user
+  has_many :orders
 
 end
