@@ -1,6 +1,10 @@
 class Order < ApplicationRecord
-  validates :user, numericality: {other_than: 0, message: "can't be blank"}
-  validates :episode, numericality: {other_than: 0, message: "can't be blank"}
+  attr_accessor :token, :order
+
+  validates :user, presence: true
+  validates :episode, presence: true
+  validates :price, presence: true
+  validates :token, presence: true
 
   belongs_to :user
   belongs_to :episode

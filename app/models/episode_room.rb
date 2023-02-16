@@ -1,7 +1,7 @@
 class EpisodeRoom < ApplicationRecord
   validates :name, presence: true
-  validates :episode, numericality: {other_than: 0, message: "can't be blank"}
-  validates :order, numericality: {other_than: 0, message: "can't be blank"}
+  validates :episode, presence: true
+  validates :order, presence: true
 
   belongs_to :episode
   belongs_to :order

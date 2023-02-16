@@ -6,21 +6,24 @@ class EpisodeRoomsController < ApplicationController
   end
 
   def create
-    @order = Order.create(order_params)
-    EpisodeRoom.create(episode_room_params)
-    binding.pry
-    # @episode_room = EpisodeRoom.new(episode_room_params)
-    # if @episode_room.save
-    #   render json: { status: :created, episode: @episode_room }
-    # else
-    #   render json: { status: 500 }
-    # end
+    @order = Order.new(order_params)
+    if @order.valid?
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp::Charge.create(
+        amount: order_params[:price],  # 商品の値段
+        card: order_params[:token],    # カードトークン
+        currency: 'jpy'                 # 通貨の種類（日本円）
+      )
+      @order.save
+      binding.pry
+      EpisodeRoom.create(episode_room_params)
+    end
   end
 
   private
 
   def order_params
-    params.permit(:episode_id).merge(user_id: current_user.id)
+    params.permit(:episode_id, :price, :token).merge(user_id: current_user.id)
   end
 
   def episode_room_params
