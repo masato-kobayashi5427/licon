@@ -26,6 +26,16 @@ class EpisodesController < ApplicationController
     end
   end
 
+  def update
+    episode = Episode.find(params[:id])
+    episode.update(episode_params)
+  end
+
+  def destroy
+    episode = Episode.find(params[:id])
+    episode.destroy
+  end
+
   private
 
   def episode_params

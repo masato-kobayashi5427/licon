@@ -15,7 +15,6 @@ class EpisodeRoomsController < ApplicationController
         currency: 'jpy'                 # 通貨の種類（日本円）
       )
       @order.save
-      binding.pry
       EpisodeRoom.create(episode_room_params)
     end
   end
