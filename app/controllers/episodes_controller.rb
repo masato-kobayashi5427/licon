@@ -1,7 +1,7 @@
 class EpisodesController < ApplicationController
   def index
     episodes = Episode.all
-    render json: episodes.to_json(include: :user)
+    render json: episodes.to_json(include: [:user, :orders])
   end
 
   def show
