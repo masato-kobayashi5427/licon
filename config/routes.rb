@@ -6,12 +6,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout'
   get '/logged_in', to: 'sessions#logged_in?'
 
-  # get 'episodes', to: 'episodes#index'
-  # get 'episodes/new', to: 'episodes#new'
-  # post 'episodes/create', to: 'episodes#create'
-  # get 'episodes/:id', to: 'episodes#show'
+  resources :users, only: :show
   resources :episodes
-
   resources :episode_rooms do
     resources :chats
   end
