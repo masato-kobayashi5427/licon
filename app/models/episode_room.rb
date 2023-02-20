@@ -1,7 +1,7 @@
 class EpisodeRoom < ApplicationRecord
-  validates :name, presence: true
-  validates :episode, presence: true
-  validates :order, presence: true
+  # validates :name, presence: true
+  # validates :episode, presence: true
+  # validates :order, presence: true
 
   belongs_to :episode
   belongs_to :order
