@@ -39,7 +39,7 @@ class EpisodesController < ApplicationController
   private
 
   def episode_params
-    params.require(:episode).permit(:title, :explain, :price, :category, :limit, :period, :image).merge(user_id: current_user.id)
+    params.require(:episode).permit(:title, :explain, :price, :category, :limit, :period, :image, :user_id)
   end
 
   def decode(str)
