@@ -10,7 +10,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
   #本番環境用のオリジン設定
   allow do
-      origins 'https://licon.vercel.app/'
+      origins 'https://licon.vercel.app'
 
       resource '*',
           headers: :any,
