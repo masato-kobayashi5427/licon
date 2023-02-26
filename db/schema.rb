@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2023_01_31_140456) do
     t.text "explain", null: false
     t.integer "price", null: false
     t.string "category", null: false
-    t.integer "limit", null: false
+    t.date "limit", null: false
     t.integer "period", null: false
     t.string "image_url"
     t.bigint "user_id", null: false

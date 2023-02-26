@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Licon
   class Application < Rails::Application
+    config.i18n.default_locale = :ja
     config.assets.enabled = false
     config.action_cable.mount_path = "/cable"
     # Initialize configuration defaults for originally generated Rails version.
