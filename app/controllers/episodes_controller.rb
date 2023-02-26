@@ -11,7 +11,7 @@ class EpisodesController < ApplicationController
 
   def create
     @episode = Episode.new(episode_params)
-    if params[:episode][:image]
+    if @episode.id == !nil
       blob = ActiveStorage::Blob.create_after_upload!(
         io: StringIO.new(decode(params[:episode][:image][:data]) + "\n"),
         filename: params[:episode][:image][:name]
@@ -22,7 +22,7 @@ class EpisodesController < ApplicationController
     if @episode.save
       render json: { status: :created, episode: @episode }
     else
-      render json: { status: 500 }
+      render json: { status: 500, errors: @episode.errors }
     end
   end
 
