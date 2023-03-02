@@ -24,7 +24,7 @@ class ChatsController < ApplicationController
   private
 
   def chat_params
-    params.require(:chat).permit(:content, :episode_room_id, :image).merge(user_id: current_user.id)
+    params.require(:chat).permit(:content, :episode_room_id, :image, :canvasUrl).merge(user_id: current_user.id)
   end
 
   def decode(str)

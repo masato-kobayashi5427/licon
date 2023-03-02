@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2023_01_31_140456) do
   create_table "chats", force: :cascade do |t|
     t.string "content"
     t.string "image_url"
+    t.string "canvasUrl"
     t.bigint "episode_room_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

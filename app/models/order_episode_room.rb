@@ -4,7 +4,7 @@ class OrderEpisodeRoom
 
 
   with_options presence: true do
-    validates :name, :episode, :user_id, :price
+    validates :name, :episode_id, :user_id, :price
   end
 
   def save
