@@ -2,7 +2,6 @@ class Episode < ApplicationRecord
   include Rails.application.routes.url_helpers
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  # validates :image, presence: true
   validates :title, presence: { message: "タイトルを入力してください"}
   validates :explain, presence: { message: "説明文をを入力してください"}
   validates :price, presence: { message: "価格を入力してください" }
@@ -12,7 +11,7 @@ class Episode < ApplicationRecord
   validates :limit, presence: { message: "期限を入力してください"}
   validates :period, presence: { message: "期間を入力してください"}
   validates :user, presence: { message: "ユーザーが見つかりませんでした" }
-  validates :image, presence: { message: "画像を入力してください"}
+  validates :image_url, presence: { message: "画像を入力してください"}
   validate :validate_image_size
 
   has_one_attached :image
