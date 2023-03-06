@@ -11,7 +11,7 @@ class EpisodesController < ApplicationController
 
   def create
     @episode = Episode.new(episode_params)
-    if params[:episode][:image]
+    if params[:episode][:image][:data] != ""
       blob = ActiveStorage::Blob.create_after_upload!(
         io: StringIO.new(decode(params[:episode][:image][:data]) + "\n"),
         filename: params[:episode][:image][:name]
