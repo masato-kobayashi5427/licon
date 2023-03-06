@@ -67,3 +67,4 @@ gem "aws-sdk-s3", "~> 1.118"
 gem 'payjp'
 gem 'sprockets-rails'
 gem 'rails-i18n'
+gem "rails_same_site_cookie", "~> 0.1.8"
