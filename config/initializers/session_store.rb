@@ -1,5 +1,1 @@
-if Rails.env.production?
-  Rails.application.config.session_store :cookie_store, key: 'licon', domain: 'licon.vercel.app', secure: true
-else
-  Rails.application.config.session_store :cookie_store, key: 'licon'
-end
+Rails.application.config.session_store :cookie_store, key: 'session_id', domain: :all, tld_length: 2
