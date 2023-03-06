@@ -16,6 +16,7 @@ class EpisodeRoomsController < ApplicationController
         currency: 'jpy'                 # 通貨の種類（日本円）
       )
       @order_episode_room.save
+      render json: { status: :created, episode: @order_episode_room }
     end
   end
 
