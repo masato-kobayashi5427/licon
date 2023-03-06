@@ -7,6 +7,7 @@ class EpisodeRoomsController < ApplicationController
 
   def create
     @order_episode_room = OrderEpisodeRoom.new(order_params)
+    puts @order_episode_room
     if @order_episode_room.valid?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
@@ -21,11 +22,7 @@ class EpisodeRoomsController < ApplicationController
   private
 
   def order_params
-    params.require(:order_episode_room).permit(:name, :episode_id ,:order_id, :price, :token, user_ids: []).merge(user_id: current_user.id)
+    params.require(:order_episode_room).permit(:name, :episode_id ,:order_id, :price, :token, :user_id, user_ids: [])
   end
-
-  # def episode_room_params
-  #   params.permit(:name, :episode_id, user_ids: []).merge(order_id: @order.id)
-  # end
   
 end
