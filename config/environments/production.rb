@@ -42,11 +42,9 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
-  config.action_cable.allowed_request_origins = ['https://your-staging-domain', 'https://your-production-domain']
   config.action_cable.disable_request_forgery_protection = true
   ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = "wss://raikon.onrender.com//cable" 
+  config.action_cable.url = "wss://raikon.onrender.com/cable" 
   config.action_cable.allowed_request_origins = ['https://raikon.onrender.com']
 
 # 省略
