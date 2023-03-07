@@ -7,7 +7,6 @@ class EpisodeRoomsController < ApplicationController
 
   def create
     @order_episode_room = OrderEpisodeRoom.new(order_params)
-    puts @order_episode_room
     if @order_episode_room.valid?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
