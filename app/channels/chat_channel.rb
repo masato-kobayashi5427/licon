@@ -18,7 +18,6 @@ class ChatChannel < ApplicationCable::Channel
 
   def reconnect
     # 再接続時に保持したメッセージを再送信する
-    binding.pry
     @messages&.each { |message| ActionCable.server.broadcast("chat#{params[:room_id]}", message) }
   end
 end
