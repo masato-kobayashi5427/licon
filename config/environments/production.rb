@@ -47,11 +47,6 @@ Rails.application.configure do
   config.action_cable.url = "wss://raikon.onrender.com/cable" 
   config.action_cable.allowed_request_origins = ['https://licon.vercel.app']
 
-# 省略
-
-end
-
-
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
