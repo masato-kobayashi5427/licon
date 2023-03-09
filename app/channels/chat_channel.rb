@@ -7,6 +7,18 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def chat(data)
-    ActionCable.server.broadcast("chat#{params[:room_id]}", { sender: current_user.nickname, body: data['body'] })
+    message = { sender: current_user.nickname, body: data['body'] }
+
+    # 一時的にメッセージを保持する
+    @messages ||= []
+    @messages << message
+
+    ActionCable.server.broadcast("chat#{params[:room_id]}", message)
+  end
+
+  def reconnect
+    # 再接続時に保持したメッセージを再送信する
+    binding.pry
+    @messages&.each { |message| ActionCable.server.broadcast("chat#{params[:room_id]}", message) }
   end
 end
