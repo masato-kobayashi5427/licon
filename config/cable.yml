@@ -1,6 +1,6 @@
 development:
-  # adapter: redis
-  adapter: async
+  adapter: redis
+  # adapter: async
   url: <%= ENV.fetch("REDIS_URL") { "redis://redis/1" } %>
   channel_prefix: licon_production
 
@@ -8,6 +8,6 @@ test:
   adapter: test
 
 production:
-  adapter: async
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  adapter: redis
+  url: redis://localhost:6379/1
   channel_prefix: licon_production
