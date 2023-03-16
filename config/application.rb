@@ -16,7 +16,7 @@ module Licon
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
-    config.action_dispatch.cookies_same_site_protection = :lax
+    config.action_dispatch.cookies_same_site_protection = :none
     config.ssl_options = { hsts: { preload: true } }
     # Configuration for the application, engines, and railties goes here.
     #
