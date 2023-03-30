@@ -18,6 +18,12 @@ module Licon
     config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
     config.action_dispatch.cookies_same_site_protection = :none
     config.ssl_options = { hsts: { preload: true } }
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*' # ReactアプリのURLを指定することもできます
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      end
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
