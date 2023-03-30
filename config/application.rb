@@ -20,7 +20,7 @@ module Licon
     config.ssl_options = { hsts: { preload: true } }
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*' # ReactアプリのURLを指定することもできます
+        origins 'https://licon.vercel.app', 'http://localhost:3000' # ReactアプリのURLを指定することもできます
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
